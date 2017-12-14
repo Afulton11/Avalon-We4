@@ -17,7 +17,9 @@ import {
 import {NavigationActions} from 'react-navigation';
 import {scale, scaleModerate, scaleVertical} from '../../utils/scale';
 
-let timeFrame = 500;
+let timeFrame = 5;
+
+let loadedData = false;
 
 export class SplashScreen extends React.Component {
 
@@ -32,6 +34,7 @@ export class SplashScreen extends React.Component {
     StatusBar.setHidden(true, 'none');
     RkTheme.setTheme(KittenTheme);
 
+
     this.timer = setInterval(() => {
       if (this.state.progress == 1) {
         clearInterval(this.timer);
@@ -39,11 +42,16 @@ export class SplashScreen extends React.Component {
           StatusBar.setHidden(false, 'slide');
           let toHome = NavigationActions.reset({
             index: 0,
-            actions: [NavigationActions.navigate({routeName: 'Home'})]
+            actions: [NavigationActions.navigate({routeName: 'CharacterList'})]
           });
           this.props.navigation.dispatch(toHome)
         }, timeFrame);
       } else {
+
+        if (!loadedData) {
+          loadedData  = true;
+        }
+
         let random = Math.random() * 0.5;
         let progress = this.state.progress + random;
         if (progress > 1) {

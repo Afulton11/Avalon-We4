@@ -1,13 +1,18 @@
 import React from 'react';
 import {
+  Easing,
+  Animated,
+} from 'react-native';
+import {
   DrawerNavigator,
   StackNavigator
 } from 'react-navigation';
 import {withRkTheme} from 'react-native-ui-kitten';
-import {AppRoutes} from './config/navigation/routesBuilder';
+import {NavBar} from './components/index';
+import transition from './config/navigation/transitions';
 import * as Screens from './screens';
-import {bootstrap} from './config/bootstrap';
 import track from './config/analytics';
+import {bootstrap} from './config/bootstrap';
 import {data} from './data'
 
 bootstrap();
@@ -24,21 +29,58 @@ function getCurrentRouteName(navigationState) {
   return route.routeName;
 }
 
-let SideMenu = withRkTheme(Screens.SideMenu);
+let ThemedNavigationBar = withRkTheme(NavBar);
+
 const KittenApp = StackNavigator({
   First: {
-    screen: Screens.SplashScreen
+    screen: Screens.SplashScreen,
+    navigationOptions: {
+      header: () => null
+    },
   },
-  Home: {
-    screen: DrawerNavigator({
-        ...AppRoutes,
-      },
-      {
-        contentComponent: (props) => <SideMenu {...props}/>
-      })
+  CharacterList: {
+    screen: Screens.CharacterList
+  },
+  Character: {
+    screen: Screens.Character
   }
+
 }, {
-  headerMode: 'none',
+  initialRouteName: 'CharacterList',
+  cardStyle: {backgroundColor: 'transparent'},
+  headerMode: 'float',
+  transitionConfig: () => ({
+    transitionSpec: {
+      duration: 150,
+      easing: Easing.out(Easing.poly(4)),
+      timing: Animated.timing,
+    },
+    screenInterpolator: sceneProps => {
+      const { layout, position, scene } = sceneProps;
+      const { index } = scene;
+
+      const height = layout.initHeight;
+      const translateX = position.interpolate({
+        inputRange: [index - 1, index, index + 1],
+        outputRange: [height, 0, 0],
+      });
+
+      const opacity = position.interpolate({
+        inputRange: [index - 1, index - 0.99, index],
+        outputRange: [0, 1, 1],
+      });
+
+      return { opacity, transform: [{ translateX }] };
+    },
+  }),
+  // cardStyle: {backgroundColor: 'transparent'},
+  // transitionConfig: transition,
+  // navigationOptions: ({navigation, screenProps}) => ({
+  //   gesturesEnabled: true,
+  //   header: (headerProps) => {
+  //     return <ThemedNavigationBar navigation={navigation} headerProps={headerProps}/>
+  //   }
+  // })
 });
 
 

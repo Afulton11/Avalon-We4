@@ -1,6 +1,8 @@
 import {
   StatusBar,
-  StyleSheet
+  StyleSheet,
+  Dimensions,
+  Platform
 } from 'react-native';
 import {RkTheme} from 'react-native-ui-kitten';
 import {KittenTheme} from './theme';
@@ -396,7 +398,7 @@ export let bootstrap = () => {
   RkTheme.setType('RkCard', 'horizontal', {
     container: {
       flexDirection: 'row',
-      height: 110
+      height: Platform.OS == 'ios' ? 110 : 125
     },
     content: {
       flex: 1,
@@ -428,6 +430,32 @@ export let bootstrap = () => {
   });
 
   RkTheme.setType('RkCard', 'article', {
+    container: {
+      borderWidth: 0,
+      backgroundColor: 'transparent'
+    },
+    header: {
+      paddingVertical: 0,
+      paddingTop: 20,
+      paddingBottom: 16,
+      justifyContent: 'space-between',
+      borderBottomWidth: StyleSheet.hairlineWidth,
+      borderColor: theme => theme.colors.border.base
+    },
+    content: {
+      padding: 16,
+      borderBottomWidth: 1,
+      borderColor: theme => theme.colors.border.base
+    },
+    footer: {
+      paddingHorizontal: 14,
+      paddingTop: 15,
+      paddingBottom: 16,
+      alignItems: 'center'
+    }
+  });
+
+  RkTheme.setType('RkCard', 'character', {
     container: {
       borderWidth: 0,
       backgroundColor: 'transparent'

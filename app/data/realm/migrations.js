@@ -1,15 +1,14 @@
-import {Article, Card, Comment, Conversation, Message, Notification, Photo, User, Version} from './schemas';
-import notifications from '../raw/notifications';
+import {Character, Version} from './schemas';
+import characters from '../raw/characters';
 
 export default [
   {
-    schema: [User, Article, Comment, Photo, Version, Notification, Message, Card, Conversation],
-    schemaVersion: 1,
+    schema: [Character, Version],
+    schemaVersion: 2,
     migration(oldRealm, newRealm) {
-      const newObjects = newRealm.objects('Notification');
-
-      for (let i = 0; i < newObjects.length; i++) {
-        newObjects[i].type = notifications[i].type;
+      const newCharacterObjects = newRealm.objects('Character');
+      for (let i = 0; i < newCharacterObjects.length; i++) {
+        newCharacterObjects[i].subheader = characters[i].subheader;
       }
     }
   }

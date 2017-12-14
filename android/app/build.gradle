@@ -87,10 +87,10 @@ def enableProguardInReleaseBuilds = false
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.1"
+    buildToolsVersion "25.0.1"
 
     defaultConfig {
-        applicationId "com.akveo.kittenTricks"
+        applicationId "com.fulton.avalon"
         minSdkVersion 16
         targetSdkVersion 22
         ndk {
@@ -99,11 +99,17 @@ android {
     }
     signingConfigs {
         release {
-            if (project.hasProperty('RELEASE_STORE_FILE')) {
-                storeFile file(RELEASE_STORE_FILE)
-                storePassword pass
-                keyAlias RELEASE_KEY_ALIAS
-                keyPassword pass
+//            if (project.hasProperty('RELEASE_STORE_FILE')) {
+//                storeFile file(RELEASE_STORE_FILE)
+//                storePassword pass
+//                keyAlias RELEASE_KEY_ALIAS
+//                keyPassword pass
+//            }
+            if (project.hasProperty('MYAPP_RELEASE_STORE_FILE')) {
+                storeFile file(MYAPP_RELEASE_STORE_FILE)
+                storePassword MYAPP_RELEASE_STORE_PASSWORD
+                keyAlias MYAPP_RELEASE_KEY_ALIAS
+                keyPassword MYAPP_RELEASE_KEY_PASSWORD
             }
         }
     }

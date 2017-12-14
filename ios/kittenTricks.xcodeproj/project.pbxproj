@@ -132,6 +132,13 @@
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RCTLinking;
 		};
+		7F6E6B1D1FA43F4400989C70 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AAC252331EB328000080D1AC /* BVLinearGradient.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 64AA15081EF7F30100718508;
+			remoteInfo = "BVLinearGradient-tvOS";
+		};
 		832341B41AAA6A8300B99B32 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */;
@@ -469,7 +476,7 @@
 			isa = PBXGroup;
 			children = (
 				5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */,
-				AA4671DC1EEE6DDF00100229 /* libRCTAnimation-tvOS.a */,
+				AA4671DC1EEE6DDF00100229 /* libRCTAnimation.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -481,6 +488,16 @@
 				AA4671E51EEE6DDF00100229 /* libRCTLinking-tvOS.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		7F6E6B1A1FA43F4100989C70 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				8E39931D467F462AA8F3A0F9 /* libRNSVG.a */,
+				4A78E145B445401A8C76FFAA /* libRCTGoogleAnalyticsBridge.a */,
+				0A889C6AB253422D9E0743EF /* libRealmReact.a */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -522,6 +539,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				267D05B5106C4039A5D1510D /* Resources */,
 				3CC98A884A0961297B541BB2 /* Frameworks */,
+				7F6E6B1A1FA43F4100989C70 /* Recovered References */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -572,6 +590,7 @@
 			isa = PBXGroup;
 			children = (
 				AAC252381EB328000080D1AC /* libBVLinearGradient.a */,
+				7F6E6B1E1FA43F4400989C70 /* libBVLinearGradient.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -607,8 +626,8 @@
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = P48M49RUTP;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = VE98UGZ2MZ;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -788,6 +807,13 @@
 			remoteRef = 78C398B81ACF4ADC00677621 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		7F6E6B1E1FA43F4400989C70 /* libBVLinearGradient.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libBVLinearGradient.a;
+			remoteRef = 7F6E6B1D1FA43F4400989C70 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		832341B51AAA6A8300B99B32 /* libRCTText.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -830,7 +856,7 @@
 			remoteRef = AA429D761EEEA09F00A8EAA3 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		AA4671DC1EEE6DDF00100229 /* libRCTAnimation-tvOS.a */ = {
+		AA4671DC1EEE6DDF00100229 /* libRCTAnimation.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libRCTAnimation.a;
@@ -997,10 +1023,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = P48M49RUTP;
+				DEVELOPMENT_TEAM = VE98UGZ2MZ;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../node_modules/react-native-google-analytics-bridge/ios/RCTGoogleAnalyticsBridge/**\"",
@@ -1028,10 +1055,10 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.akveo.kittentricks;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fulton.avalon;
 				PRODUCT_NAME = kittenTricks;
-				PROVISIONING_PROFILE = "b9879fc2-e7c4-47c9-97db-35a91901d0b1";
-				PROVISIONING_PROFILE_SPECIFIER = "Kitten Tricks Provisioning";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1043,9 +1070,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = P48M49RUTP;
+				DEVELOPMENT_TEAM = VE98UGZ2MZ;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../node_modules/react-native-google-analytics-bridge/ios/RCTGoogleAnalyticsBridge/**\"",
@@ -1066,10 +1094,10 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.akveo.kittentricks;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fulton.avalon;
 				PRODUCT_NAME = kittenTricks;
-				PROVISIONING_PROFILE = "9bffb4e8-468b-4197-bfa4-4b6242a2a230";
-				PROVISIONING_PROFILE_SPECIFIER = KittenTricksAddHoc;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
